@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const app = express();
 const PORT = 5000;
 
-app.use(cors({ origin: 'https://dev.mtaylor.design' }));
+app.use(cors({ origin: process.env.FRONTEND_URL }));
 app.use(express.json());
 
 // Connect to MongoDB Atlas
