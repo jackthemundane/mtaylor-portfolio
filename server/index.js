@@ -15,7 +15,7 @@ mongoose.connect(process.env.MONGO_URI)
   .catch((err) => console.error('❌ MongoDB Connection Error:', err));
 
 app.get('/', (req, res) => {
-  res.send('Backend says: The mtaylor-portfolio backend is officially online and connected to the database!');
+  res.send('Backend says: Hello from VS Code Remote SSH!');
 });
 
 app.listen(PORT, () => {
