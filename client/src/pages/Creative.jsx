@@ -7,7 +7,7 @@ export default function Creative({ title = "Creative" }) {
       
       <header className="relative z-10 text-center">
         <h1 className="text-4xl font-black tracking-tighter uppercase font-display">{title}</h1>
-        <p className="text-zinc-500 mt-4 max-w-md">Detailed case studies and project breakdowns coming soon.</p>
+        <p className="text-zinc-500 mt-4 max-w-md">Writing samples and creative projects coming soon.</p>
         
         <Link to="/" className="inline-block mt-12 text-xs font-bold tracking-widest uppercase text-zinc-400 hover:text-white transition-colors border-b border-zinc-800 pb-1">
           ← Back to Terminal
