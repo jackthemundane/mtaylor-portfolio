@@ -1,24 +1,22 @@
-import { useState, useEffect } from 'react'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LandingPage from './pages/LandingPage';
+import Technical from './pages/Technical';
+import Games from './pages/Games';
+import Product from './pages/Product';
+import Creative from './pages/Creative';
 
 function App() {
-  const [message, setMessage] = useState("Loading...")
-
-  useEffect(() => {
-    fetch('https://api.mtaylor.design/')
-      .then(res => res.text())
-      .then(data => setMessage(data))
-      .catch(err => setMessage("Error connecting to backend"))
-  }, [])
-
   return (
-    <div className="App">
-      <h1>MERN Stack Test</h1>
-      <div className="card">
-        <p>Backend says: <strong>{message}</strong></p>
-      </div>
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/tech" element={<Technical title="Technical" />} />
+        <Route path="/games" element={<Games title="Games & 3D" />} />
+        <Route path="/product" element={<Product title="Product" />} />
+        <Route path="/creative" element={<Creative title="Creative" />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
