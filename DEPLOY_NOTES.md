@@ -5,6 +5,39 @@ from client npm run dev
 
 ssh mike@blackbox
 
+Phase 3: The Dev Deploy (Staging)
+
+Now, SSH into your "Blackbox" server and pull that fresh code into your staging area.
+
+    SSH in: ssh mike@blackbox
+
+    Pull & Build:
+    Bash
+
+    cd /var/www/dev
+    git pull
+    cd client
+    npm install  # (Or 'npm ci' as per your notes)
+    npm run build
+
+    Check it: Visit https://dev.mtaylor.design. You should see your "Deployment!" message here, but NOT on the main https://mtaylor.design yet.
+
+
+Phase 4: The Prod Push (Release)
+
+Once you are happy that the dev site isn't broken, it's time to "Ship it" to the live folder.
+
+    Sync to Prod:
+    Bash
+
+    sudo rsync -a --delete /var/www/dev/client/dist/ /var/www/html/
+
+        Why rsync? It’s smarter than cp. The --delete flag ensures that if you deleted an old image in your code, it also gets deleted from the server folder, keeping things clean. 
+
+    Reload Nginx:
+    Bash
+
+    sudo systemctl reload nginx
 
 Dev deploy
 
