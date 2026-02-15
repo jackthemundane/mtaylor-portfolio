@@ -11,3 +11,18 @@ build/
 # Operating system files
 .DS_Store
 Thumbs.db
+
+# Cloudflare & Security
+*.json
+*.pem
+*.key
+*.crt
+cert.pem
+
+# SSH and Credentials
+.ssh/
+SerrverStuff.txt
+
+# OS/System files
+.DS_Store
+node_modules/
