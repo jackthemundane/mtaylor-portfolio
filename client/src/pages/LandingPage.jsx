@@ -1,65 +1,52 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function LandingPage() {
+const LandingPage = () => {
+  // Configuration for your menu items
+  const menuItems = [
+    { title: 'Technical', path: '/technical', color: 'border-blue-500 shadow-[inset_0_0_10px_rgba(59,130,246,0.3)]' },
+    { title: 'Games', path: '/games', color: 'border-red-500 shadow-[inset_0_0_10px_rgba(239,68,68,0.3)]' },
+    // I noticed you don't have a 3D.jsx page yet, so this might 404 until we create it!
+    { title: '3D', path: '/3d', color: 'border-purple-500 shadow-[inset_0_0_10px_rgba(168,85,247,0.3)]' },
+    { title: 'Product', path: '/product', color: 'border-green-500 shadow-[inset_0_0_10px_rgba(34,197,94,0.3)]' },
+    { title: 'Creative', path: '/creative', color: 'border-yellow-500 shadow-[inset_0_0_10px_rgba(234,179,8,0.3)]' },
+  ];
+
   return (
-    <div className="relative min-h-screen w-full flex flex-col items-center justify-center bg-[#09090b] text-[#fafafa] p-6 overflow-hidden font-sans">
+    <div className="min-h-screen bg-[#050505] text-white font-sans flex flex-col justify-center items-center overflow-hidden">
       
-      {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
+      {/* Navigation Grid */}
+      <nav className="flex flex-col md:flex-row gap-20 md:gap-16 perspective-1000 items-center justify-center w-full z-10 pt-8 md:pt-0">
+        {menuItems.map((item) => (
+          <Link 
+            key={item.title} 
+            to={item.path} 
+            className="nav-item group flex flex-col items-center text-decoration-none transition-all duration-500"
+          >
+            {/* The 3D Cube */}
+            <div className="shape-box mb-6">
+              <div className={`cube-face face-front border ${item.color}`}></div>
+              <div className={`cube-face face-back border ${item.color}`}></div>
+              <div className={`cube-face face-right border ${item.color}`}></div>
+              <div className={`cube-face face-left border ${item.color}`}></div>
+              <div className={`cube-face face-top border ${item.color}`}></div>
+              <div className={`cube-face face-bottom border ${item.color}`}></div>
+            </div>
 
-      {/* 1. Header Section */}
-      <header className="relative z-10 text-center mb-12">
-        <h1 className="text-6xl font-black tracking-tighter sm:text-7xl font-display">
-          Michael Taylor
-        </h1>
-        <h2 className="text-sm font-light tracking-[0.4em] text-zinc-500 mt-4 uppercase">
-          Technical Product Owner
-        </h2>
-        
-        {/* Summary Paragraph */}
-        <p className="max-w-2xl mt-8 text-zinc-400 leading-relaxed text-lg">
-          I architect products from the <span className="text-zinc-100 font-medium">discovery phase</span> to the <span className="text-zinc-100 font-medium">production server</span>. Currently bridging the gap between strategic roadmaps and MERN-stack engineering.
-        </p>
+            {/* Label */}
+            <span className="text-[9px] tracking-[0.5em] uppercase text-zinc-600 transition-all duration-300 group-hover:text-white group-hover:tracking-[0.7em]">
+              {item.title}
+            </span>
+          </Link>
+        ))}
+      </nav>
 
-        {/* Contact Links (Moved Up) */}
-        <div className="flex gap-8 justify-center mt-8 text-xs font-bold tracking-widest uppercase">
-          <a href="/resume.pdf" className="hover:text-blue-400 transition-colors border-b border-zinc-800 pb-1">Resume</a>
-          <a href="https://github.com/jackthemundane" className="hover:text-blue-400 transition-colors border-b border-zinc-800 pb-1">GitHub</a>
-          <a href="https://www.linkedin.com/in/michaeltaylorca/" className="hover:text-blue-400 transition-colors border-b border-zinc-800 pb-1">LinkedIn</a>
-        </div>
-      </header>
-
-      {/* 2. Section Cards */}
-      <main className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-6xl">
-  {[
-    { title: "Technical", icon: "💻", path: "/tech" },
-    { title: "Games & 3D", icon: "🎮", path: "/games" },
-    { title: "Product", icon: "📋", path: "/product" },
-    { title: "Creative", icon: "📖", path: "/creative" },
-  ].map((item) => (
-    <Link 
-      key={item.title} 
-      to={item.path}
-      className="group relative bg-zinc-900/40 border border-zinc-800/50 p-12 rounded-2xl flex flex-col items-center gap-6 hover:bg-zinc-800/60 hover:border-zinc-700 transition-all cursor-pointer text-center"
-    >
-      <span className="text-4xl grayscale group-hover:grayscale-0 transition-all">{item.icon}</span>
-      <h3 className="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-500 group-hover:text-zinc-200">
-        {item.title}
-      </h3>
-    </Link>
-  ))}
-</main>
-
-      {/* 3. System Status Footer */}
-      <footer className="relative z-10 mt-20 flex flex-col items-center gap-2">
-        <div className="flex items-center gap-3 text-[10px] font-mono tracking-[0.2em] text-zinc-600 uppercase">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          SYS_STATUS: BLACKBOX_ONLINE
-        </div>
-        <p className="text-[9px] font-mono text-zinc-800 tracking-widest uppercase">
-          © 2025 // BUILT ON MERN
-        </p>
-      </footer>
+      {/* Footer Brand */}
+      <div className="fixed bottom-12 opacity-20 pointer-events-none tracking-widest text-sm font-light">
+        MTAYLOR.DESIGN
+      </div>
     </div>
   );
-}
+};
+
+export default LandingPage;

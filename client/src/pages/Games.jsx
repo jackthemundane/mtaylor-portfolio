@@ -10,7 +10,7 @@ export default function Games({ title = "Games" }) {
         <p className="text-zinc-500 mt-4 max-w-md">Finished and in progress games arcade coming soon.</p>
         
         <Link to="/" className="inline-block mt-12 text-xs font-bold tracking-widest uppercase text-zinc-400 hover:text-white transition-colors border-b border-zinc-800 pb-1">
-          ← Back to Terminal
+          ← Return to Base
         </Link>
       </header>
     </div>
