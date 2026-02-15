@@ -10,7 +10,7 @@ export default function LandingPage() {
       {/* 1. Header Section */}
       <header className="relative z-10 text-center mb-12">
         <h1 className="text-6xl font-black tracking-tighter sm:text-7xl font-display">
-          M. TAYLOR
+          Michael Taylor
         </h1>
         <h2 className="text-sm font-light tracking-[0.4em] text-zinc-500 mt-4 uppercase">
           Technical Product Owner
