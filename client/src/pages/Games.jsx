@@ -140,9 +140,6 @@ const Games = () => {
               {/* --- SIDEBAR (Header Info) --- */}
               <div className="p-5 md:w-72 shrink-0 border-b md:border-b-0 md:border-r border-slate-800 bg-slate-900/30 flex flex-col justify-between">
                 <div>
-                  <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-1 block">
-                    Quest Category
-                  </span>
                   <h3 className="text-xl font-black text-white uppercase tracking-wide group-hover:text-cyan-400 transition-colors">
                     {game.title}
                   </h3>
