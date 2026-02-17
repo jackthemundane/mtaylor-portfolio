@@ -26,3 +26,5 @@ SerrverStuff.txt
 # OS/System files
 .DS_Store
 node_modules/
+
+DEPLOY_NOTES.md
